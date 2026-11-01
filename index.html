@@ -41,7 +41,7 @@ html[data-l='ar'] .en,html[data-l='en'] .ar{display:none!important}
 header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.25em}
-.brand svg{width:34px;height:34px}
+.brand svg,.brand img{width:40px;height:40px}
 .nav{display:flex;align-items:center;gap:6px}
 .nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92em;padding:8px 10px;border-radius:10px}
 .nav a:hover{color:var(--text);background:var(--soft)}
@@ -51,7 +51,7 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 .hero{position:relative;overflow:hidden;padding:72px 0 40px;text-align:center}
 .hero::before{content:'';position:absolute;inset:auto 50% auto auto;top:-260px;width:620px;height:620px;transform:translateX(50%);border-radius:50%;
   background:radial-gradient(circle,rgba(78,122,119,.22),rgba(93,86,117,.10) 45%,rgba(93,86,117,0) 68%);z-index:-1}
-.mark{width:132px;height:132px;margin:0 auto 18px;filter:drop-shadow(0 18px 30px rgba(27,26,46,.25))}
+.mark{width:min(240px,62vw);height:auto;margin:-20px auto 4px;filter:drop-shadow(0 22px 26px rgba(58,63,69,.22))}
 .mark{animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .word{font-size:clamp(4em,13vw,6.4em);line-height:1.05;margin:0;font-weight:800;letter-spacing:-.01em}
@@ -120,7 +120,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 <body>
 <header class="top"><div class="wrap">
   <a class="brand kufi" href="./">
-    <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><defs><linearGradient id="nk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FB59A"/><stop offset="1" stop-color="#8C6BC4"/></linearGradient></defs> <g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#6F7B8E"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#B9C2CF"/> <path d="M36.5 47.5 C40 46 43.5 48 46 51 C43 55 38 56 33.5 54.5 C34 51.5 35 49 36.5 47.5 Z" fill="url(#nk)" opacity=".9"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#97A2B3" stroke="#1B1A2E" stroke-width="2.4" stroke-linejoin="round"/> <path d="M63 37.5 C67 31 72 26.5 79 23 C76.5 30 72 35.5 66 40 Z" fill="#FFFFFF"/> <path d="M67.5 43 C70.5 39 73.5 36.5 77 34.5 C75.5 38.5 72.5 42 69 44.5 Z" fill="#FFFFFF"/> <path d="M19 51 L26 48.5 L26 52 Z" fill="#3A3F4B"/> <circle cx="33" cy="46" r="2" fill="#E8792E"/><circle cx="33" cy="46" r="1" fill="#1B1A2E"/> </g></svg>
+    <img src="img/pigeon-160.png" alt="" width="40" height="40" style="width:40px;height:40px">
     <span class="ar">ياسلام</span><span class="en">Yasalam</span>
   </a>
   <nav class="nav">
@@ -132,13 +132,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 
 <main>
 <section class="hero"><div class="wrap">
-  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><defs><linearGradient id="nk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FB59A"/><stop offset="1" stop-color="#8C6BC4"/></linearGradient></defs> <g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#6F7B8E"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#B9C2CF"/> <path d="M36.5 47.5 C40 46 43.5 48 46 51 C43 55 38 56 33.5 54.5 C34 51.5 35 49 36.5 47.5 Z" fill="url(#nk)" opacity=".9"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#97A2B3" stroke="#1B1A2E" stroke-width="2.4" stroke-linejoin="round"/> <path d="M63 37.5 C67 31 72 26.5 79 23 C76.5 30 72 35.5 66 40 Z" fill="#FFFFFF"/> <path d="M67.5 43 C70.5 39 73.5 36.5 77 34.5 C75.5 38.5 72.5 42 69 44.5 Z" fill="#FFFFFF"/> <path d="M19 51 L26 48.5 L26 52 Z" fill="#3A3F4B"/> <circle cx="33" cy="46" r="2" fill="#E8792E"/><circle cx="33" cy="46" r="1" fill="#1B1A2E"/> </g></svg>
+  <img class="mark" src="img/pigeon.png" alt="حمامة الحرم · Haram pigeon" width="240" height="240">
   <h1 class="word kufi"><span class="ar">ياسلام</span><span class="en">Yasalam</span></h1>
   <p class="tagline"><span class="ar">تطبيقات <b>للعقل</b> و<b>القلب</b></span><span class="en">Apps for the <b>mind</b> and the <b>heart</b></span></p>
   <p class="sub"><span class="ar">من المدينة المنورة. كل تطبيق بدأ باحتياج حقيقي في البيت، ثم كبر ليصل لكل بيت.</span><span class="en">Made in Madinah. Every app began with a real need at home, then grew to reach every home.</span></p>
 
   <div class="meaning">
-    <div class="glyph"><svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><defs><linearGradient id="nk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FB59A"/><stop offset="1" stop-color="#8C6BC4"/></linearGradient></defs> <g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#6F7B8E"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#B9C2CF"/> <path d="M36.5 47.5 C40 46 43.5 48 46 51 C43 55 38 56 33.5 54.5 C34 51.5 35 49 36.5 47.5 Z" fill="url(#nk)" opacity=".9"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#97A2B3" stroke="#1B1A2E" stroke-width="2.4" stroke-linejoin="round"/> <path d="M63 37.5 C67 31 72 26.5 79 23 C76.5 30 72 35.5 66 40 Z" fill="#FFFFFF"/> <path d="M67.5 43 C70.5 39 73.5 36.5 77 34.5 C75.5 38.5 72.5 42 69 44.5 Z" fill="#FFFFFF"/> <path d="M19 51 L26 48.5 L26 52 Z" fill="#3A3F4B"/> <circle cx="33" cy="46" r="2" fill="#E8792E"/><circle cx="33" cy="46" r="1" fill="#1B1A2E"/> </g></svg></div>
+    <div class="glyph"><img src="img/yasalam-tile-96.png" alt="" width="48" height="48" style="border-radius:11px"></div>
     <div>
       <h2><span class="ar">ليش «ياسلام»؟</span><span class="en">Why “Yasalam”?</span></h2>
       <p><span class="ar">«ياسلام» كلمة تخرج منّا عفوياً حين يدهشنا شيء جميل. ونقصد بها <q>السلام</q>، اسماً من أسماء الله الحسنى. وهذا ما نتمناه لكل تطبيق نصنعه: أن يريحك ويسعدك، فتقول: ياسلام.</span><span class="en">“Ya Salam” is what we say when something beautiful delights us. To us it also calls on <q>As-Salam</q>, the Source of Peace, one of the beautiful names of God. That is what we hope every app we make does: bring you ease and joy, so you say Ya Salam.</span></p>
