@@ -51,9 +51,9 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 .hero{position:relative;overflow:hidden;padding:72px 0 40px;text-align:center}
 .hero::before{content:'';position:absolute;inset:auto 50% auto auto;top:-260px;width:620px;height:620px;transform:translateX(50%);border-radius:50%;
   background:radial-gradient(circle,rgba(242,169,59,.28),rgba(242,169,59,0) 65%);z-index:-1}
-.mark{width:132px;height:132px;margin:0 auto 18px;filter:drop-shadow(0 18px 30px rgba(242,169,59,.28))}
-.mark .ring{transform-origin:50% 50%;animation:breathe 4s ease-in-out infinite}
-@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.mark{width:132px;height:132px;margin:0 auto 18px;filter:drop-shadow(0 18px 30px rgba(27,26,46,.25))}
+.mark{animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .word{font-size:clamp(4em,13vw,6.4em);line-height:1.05;margin:0;font-weight:800;letter-spacing:-.01em}
 .word .en{font-family:'IBM Plex Sans Arabic',sans-serif;letter-spacing:.02em}
 .tagline{font-size:clamp(1.25em,3vw,1.6em);font-weight:600;margin:10px 0 6px}
@@ -120,7 +120,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 <body>
 <header class="top"><div class="wrap">
   <a class="brand kufi" href="./">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7.5" fill="#1B1A2E"/><path transform="translate(5.5 5.5) scale(.66)" d="M16 2.5C17.1 10.6 21.4 14.9 29.5 16C21.4 17.1 17.1 21.4 16 29.5C14.9 21.4 10.6 17.1 2.5 16C10.6 14.9 14.9 10.6 16 2.5Z" fill="#F2A93B"/></svg>
+    <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#F2A93B"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#FBF8F3"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#FBF8F3" stroke="#1B1A2E" stroke-width="2.6" stroke-linejoin="round"/> <circle cx="33" cy="46" r="2" fill="#1B1A2E"/> </g></svg>
     <span class="ar">ياسلام</span><span class="en">Yasalam</span>
   </a>
   <nav class="nav">
@@ -132,16 +132,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 
 <main>
 <section class="hero"><div class="wrap">
-  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true">
-    <g transform="translate(8 14) scale(2.9)"><path class="ring" d="M16 2.5C17.1 10.6 21.4 14.9 29.5 16C21.4 17.1 17.1 21.4 16 29.5C14.9 21.4 10.6 17.1 2.5 16C10.6 14.9 14.9 10.6 16 2.5Z" fill="#F2A93B"/></g>
-    <path transform="translate(86 6) scale(.9)" d="M16 2.5C17.1 10.6 21.4 14.9 29.5 16C21.4 17.1 17.1 21.4 16 29.5C14.9 21.4 10.6 17.1 2.5 16C10.6 14.9 14.9 10.6 16 2.5Z" fill="currentColor" style="color:var(--ink)"/>
-  </svg>
+  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#F2A93B"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#FBF8F3"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#FBF8F3" stroke="#1B1A2E" stroke-width="2.6" stroke-linejoin="round"/> <circle cx="33" cy="46" r="2" fill="#1B1A2E"/> </g></svg>
   <h1 class="word kufi"><span class="ar">ياسلام</span><span class="en">Yasalam</span></h1>
   <p class="tagline"><span class="ar">تطبيقات <b>للعقل</b> و<b>القلب</b></span><span class="en">Apps for the <b>mind</b> and the <b>heart</b></span></p>
   <p class="sub"><span class="ar">من المدينة المنورة. كل تطبيق بدأ باحتياج حقيقي في البيت، ثم كبر ليصل لكل بيت.</span><span class="en">Made in Madinah. Every app began with a real need at home, then grew to reach every home.</span></p>
 
   <div class="meaning">
-    <div class="glyph"><svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5C17.1 10.6 21.4 14.9 29.5 16C21.4 17.1 17.1 21.4 16 29.5C14.9 21.4 10.6 17.1 2.5 16C10.6 14.9 14.9 10.6 16 2.5Z" fill="#F2A93B"/></svg></div>
+    <div class="glyph"><svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="23" fill="#1B1A2E"/><g transform="translate(50 50) scale(.9) translate(-55 -39.5)"> <path d="M50 49 C52 33 61 19 76 11 C75 26 70 39 60 49 Z" fill="#F2A93B"/> <path d="M19 51 L26 48.5 C27 43 32 40 37 41.5 C42 43 45 47 48 50 C57 52 66 50 75 45 L89 39 C87 45 87 50 91 55 L77 58 C67 64 53 68 43 66 C34 64 29 59 27 55 Z" fill="#FBF8F3"/> <path d="M44.5 52.5 C48 39 59 28 79 23 C75 36 67 47 55 55.5 C51 57 47 56 44.5 52.5 Z" fill="#FBF8F3" stroke="#1B1A2E" stroke-width="2.6" stroke-linejoin="round"/> <circle cx="33" cy="46" r="2" fill="#1B1A2E"/> </g></svg></div>
     <div>
       <h2><span class="ar">ليش «ياسلام»؟</span><span class="en">Why “Yasalam”?</span></h2>
       <p><span class="ar">«ياسلام» كلمة تخرج منّا عفوياً حين يدهشنا شيء جميل. ونقصد بها <q>السلام</q>، اسماً من أسماء الله الحسنى. وهذا ما نتمناه لكل تطبيق نصنعه: أن يريحك ويسعدك، فتقول: ياسلام.</span><span class="en">“Ya Salam” is what we say when something beautiful delights us. To us it also calls on <q>As-Salam</q>, the Source of Peace, one of the beautiful names of God. That is what we hope every app we make does: bring you ease and joy, so you say Ya Salam.</span></p>
@@ -211,7 +208,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 <section id="contact" style="padding-top:8px"><div class="wrap">
   <div class="contact">
     <div><h2><span class="ar">نسعد بسماعك</span><span class="en">We’d love to hear from you</span></h2><p><span class="ar">فكرة، ملاحظة، أو مشكلة في أحد التطبيقات؟ راسلنا.</span><span class="en">An idea, feedback or a problem with one of the apps? Write to us.</span></p></div>
-    <a href="mailto:bukha0s@icloud.com?subject=Yasalam">✉️ <span dir="ltr">bukha0s@icloud.com</span></a>
+    <a href="mailto:yasalam.support@gmail.com?subject=Yasalam">✉️ <span dir="ltr">yasalam.support@gmail.com</span></a>
   </div>
 </div></section>
 </main>
