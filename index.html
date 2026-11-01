@@ -115,6 +115,47 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 @media (max-width:900px){.apps{grid-template-columns:1fr;max-width:520px;margin:0 auto}.vals{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.vals{grid-template-columns:1fr}.meaning{grid-template-columns:1fr;text-align:center}.meaning .glyph{margin:0 auto}.contact{text-align:center;justify-content:center}.nav a.hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== pigeon palette, used boldly: neck teal + neck purple + the orange eye ===== */
+:root{--teal:#3F8F84;--teal2:#3FA796;--purple:#6E52A0;--eye:#E8792E;--core:var(--teal);--plum:var(--purple)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--teal:#6CC3B5;--teal2:#5FC2AF;--purple:#B29BDD;--eye:#F59A52}}
+:root[data-theme="dark"]{--teal:#6CC3B5;--teal2:#5FC2AF;--purple:#B29BDD;--eye:#F59A52}
+::selection{background:var(--eye);color:#fff}
+:focus-visible{outline:2px solid var(--eye);outline-offset:2px}
+header.top{border-bottom:0}
+header.top::after{content:'';position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,var(--teal2),var(--purple) 70%,var(--eye))}
+.nav a:hover{color:var(--teal)}
+.lang:hover{border-color:var(--eye);color:var(--eye)}
+.word .ar,.word .en{background:linear-gradient(90deg,var(--teal2),#4E7A9A 45%,var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .04em}
+.word::after{content:'';display:inline-block;width:.13em;height:.13em;border-radius:50%;background:var(--eye);margin-inline-start:.08em;box-shadow:0 0 0 .04em color-mix(in srgb,var(--eye) 25%,transparent)}
+.hero::after{content:'';position:absolute;width:260px;height:260px;border-radius:50%;top:120px;inset-inline-start:58%;background:radial-gradient(circle,rgba(232,121,46,.14),rgba(232,121,46,0) 70%);z-index:-1}
+h2.sec::after{content:'';display:block;width:64px;height:5px;margin:12px auto 0;border-radius:5px;background:linear-gradient(90deg,var(--teal2) 0 42%,var(--purple) 42% 80%,var(--eye) 80%)}
+.meaning{border:1.5px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg,var(--teal2),var(--purple),var(--eye)) border-box}
+.meaning h2{color:var(--teal)}
+.meaning q{color:var(--eye)}
+.app{border-top:4px solid var(--acc,var(--teal))}
+.app:hover{box-shadow:0 18px 40px -18px color-mix(in srgb,var(--acc,var(--teal)) 55%,transparent)}
+.app.mind{--acc:var(--teal)}.app.heart{--acc:var(--purple)}
+.chip.mind{background:color-mix(in srgb,var(--teal) 15%,transparent);color:var(--teal)}
+.chip.heart{background:color-mix(in srgb,var(--purple) 15%,transparent);color:var(--purple)}
+.app h3{color:var(--acc)}
+.status i{background:var(--teal);box-shadow:0 0 0 4px color-mix(in srgb,var(--teal) 20%,transparent)}
+.status.soon i{background:var(--eye);box-shadow:0 0 0 4px color-mix(in srgb,var(--eye) 22%,transparent)}
+.btn{background:var(--acc,var(--teal));color:#fff;transition:background .2s}
+.btn:hover{background:var(--eye)}
+.btn.ghost{background:transparent;color:var(--acc,var(--purple));border:1.5px solid color-mix(in srgb,var(--acc,var(--purple)) 55%,transparent)}
+.btn.ghost:hover{border-color:var(--eye);color:var(--eye);background:transparent}
+.v{border-top:4px solid var(--vc)}
+.v:nth-child(1){--vc:var(--teal)}.v:nth-child(2){--vc:var(--purple)}.v:nth-child(3){--vc:var(--eye)}.v:nth-child(4){--vc:var(--teal2)}
+.v .e{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--vc) 15%,transparent)}
+.v h3{color:var(--vc)}
+.contact{background:linear-gradient(135deg,#3F8F84,#4E6E8E 55%,#6E52A0);color:#fff}
+.contact p{opacity:.85}
+.contact a{background:var(--eye);color:#fff;box-shadow:0 10px 24px -10px rgba(232,121,46,.7)}
+.contact a:hover{filter:brightness(1.08)}
+footer{border-top:0;position:relative}
+footer::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--eye),var(--purple) 30%,var(--teal2))}
+footer b{color:var(--eye)}
 </style>
 </head>
 <body>
@@ -151,10 +192,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
   <p class="sec"><span class="ar">مجانية، بسيطة، وبالعربي من أول يوم.</span><span class="en">Free, simple, and Arabic from day one.</span></p>
   <div class="apps">
 
-    <article class="app" style="--c:#0E8A6A;--cink:#0B6B53">
+    <article class="app mind" style="--c:#0E8A6A;--cink:#0B6B53">
       <div class="pic"><img class="ar" src="img/nabeeh-ar.jpg" alt="" loading="lazy"><img class="en" src="img/nabeeh-en.jpg" alt="" loading="lazy"></div>
       <div class="body">
-        <div class="head"><img src="img/nabeeh.png" alt=""><span class="chip">🧠 <span class="ar">للعقل</span><span class="en">Mind</span></span></div>
+        <div class="head"><img src="img/nabeeh.png" alt=""><span class="chip mind">🧠 <span class="ar">للعقل</span><span class="en">Mind</span></span></div>
         <h3><span class="ar">نبيه</span><span class="en">Nabeeh</span></h3>
         <p><span class="ar">تدريب يومي على مقياس موهبة للمستويات الثلاثة، بخطة حتى يوم الاختبار وتقرير لولي الأمر.</span><span class="en">Daily practice for the Mawhiba test at all three levels, with a plan up to test day and a parent report.</span></p>
         <div class="status"><i></i><span class="ar">متاح الآن على App Store في السعودية</span><span class="en">Live on the App Store in Saudi Arabia</span></div>
@@ -165,10 +206,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       </div>
     </article>
 
-    <article class="app" style="--c:#0B1526;--cink:#0891B2">
+    <article class="app mind" style="--c:#0B1526;--cink:#0891B2">
       <div class="pic"><img class="ar" src="img/pulse-nexus-ar.jpg" alt="" loading="lazy"><img class="en" src="img/pulse-nexus-en.jpg" alt="" loading="lazy"></div>
       <div class="body">
-        <div class="head"><img src="img/pulse-nexus.png" alt=""><span class="chip">🧠 <span class="ar">للعقل</span><span class="en">Mind</span></span></div>
+        <div class="head"><img src="img/pulse-nexus.png" alt=""><span class="chip mind">🧠 <span class="ar">للعقل</span><span class="en">Mind</span></span></div>
         <h3>Pulse Nexus</h3>
         <p><span class="ar">لغز ليزر ومرايا هادئ: وجّه الضوء وحطّم الزجاج، عبر تسعة عوالم ومراحل لا تنتهي.</span><span class="en">A calm laser-and-mirror puzzle: guide the light and break the glass, across nine worlds and endless levels.</span></p>
         <div class="status soon"><i></i><span class="ar">قريباً على App Store حول العالم</span><span class="en">Coming soon to the App Store worldwide</span></div>
@@ -178,10 +219,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
       </div>
     </article>
 
-    <article class="app" style="--c:#E6F7F5;--cink:#0F766E">
+    <article class="app heart" style="--c:#E6F7F5;--cink:#0F766E">
       <div class="pic"><img class="ar" src="img/rifq-ar.jpg" alt="" loading="lazy"><img class="en" src="img/rifq-en.jpg" alt="" loading="lazy"></div>
       <div class="body">
-        <div class="head"><img src="img/rifq.png" alt=""><span class="chip">💛 <span class="ar">للقلب</span><span class="en">Heart</span></span></div>
+        <div class="head"><img src="img/rifq.png" alt=""><span class="chip heart">💜 <span class="ar">للقلب</span><span class="en">Heart</span></span></div>
         <h3><span class="ar">رفق</span><span class="en">Rifq</span></h3>
         <p><span class="ar">تذكير أدوية لطيف لك ولعائلتك، بمواعيد مع الصلاة والوجبات، ويعمل بدون إنترنت.</span><span class="en">Gentle medicine reminders for you and your family, timed around prayer and meals, and fully offline.</span></p>
         <div class="status soon"><i></i><span class="ar">قريباً على App Store حول العالم</span><span class="en">Coming soon to the App Store worldwide</span></div>
@@ -215,7 +256,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-bet
 
 <footer><div class="wrap">
   <span>© 2026 <span class="ar">ياسلام · عبدالعزيز بخاري</span><span class="en">YaSalam · Abdulaziz Bukhari</span></span>
-  <span><span class="ar">صُنع في المدينة المنورة</span><span class="en">Made in Madinah</span></span>
+  <span><span class="ar">صُنع بـ<b>♥</b> في المدينة المنورة</span><span class="en">Made with <b>♥</b> in Madinah</span></span>
 </div></footer>
 </body>
 </html>
