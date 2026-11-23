@@ -1,19 +1,267 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl" data-l="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>Animal Shorts Bot</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 4rem auto; padding: 0 1rem; line-height: 1.6; color: #1f2937; }
-    a { color: #2563eb; }
-  </style>
+<meta name="google-site-verification" content="wIbMjIijzJPXRSBT2TxEtTGvj2EUv-Tj34yz_brSvT0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ياسلام · YaSalam — تطبيقات للعقل والقلب والروح</title>
+<meta name="description" content="ياسلام: أربعة تطبيقات صغيرة من المدينة المنورة — نبيه، Pulse Nexus، رفق، وأذكار ياسلام. YaSalam: small apps for the mind, heart and soul, made in Madinah.">
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="ياسلام · YaSalam — تطبيقات للعقل والقلب والروح">
+<meta property="og:description" content="نبيه · Pulse Nexus · رفق · أذكار ياسلام — For the mind, heart and soul">
+<meta property="og:image" content="https://bukhaa0s-cyber.github.io/img/yasalam-512.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.png?v=4">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<script src="lang.js"></script>
+<style>
+/* One idea per screen. The apps carry the colour; the page stays quiet.
+   Pigeon colours (teal neck, purple neck, orange eye) are used as accents only. */
+:root{
+  --page:#FBFAF7; --paper:#FFFFFF; --ink:#1D1D1F; --muted:#6E6E73; --hair:rgba(0,0,0,.08);
+  --teal:#2F8577; --purple:#6E52A0; --eye:#E8792E; --link:#2F8577;
+  --nav:rgba(251,250,247,.72);
+}
+@media (prefers-color-scheme:dark){
+  :root{--page:#000; --paper:#111113; --ink:#F5F5F7; --muted:#A1A1A6; --hair:rgba(255,255,255,.12);
+    --teal:#6CC3B5; --purple:#B29BDD; --eye:#F59A52; --link:#6CC3B5; --nav:rgba(0,0,0,.72)}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--ink);
+  font:17px/1.6 -apple-system,BlinkMacSystemFont,'SF Pro Text','SF Arabic','IBM Plex Sans Arabic','Segoe UI',Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+html[data-l='ar'] body{line-height:1.75}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+html[data-l='ar'] .en,html[data-l='en'] .ar{display:none!important}
+.kufi{font-family:'Noto Kufi Arabic','IBM Plex Sans Arabic',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+/* nav — thin, translucent, out of the way */
+.nav{position:sticky;top:0;z-index:20;background:var(--nav);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hair)}
+.nav .wrap{height:48px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.02em}
+.brand img{width:26px;height:26px}
+.links{display:flex;gap:26px;margin-inline-start:auto;font-size:.82em;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.lang{margin-inline-start:auto;background:none;border:0;padding:6px 0;font:inherit;font-size:.82em;color:var(--muted);cursor:pointer}
+.lang:hover{color:var(--ink)}
+.links+.lang{margin-inline-start:0}
+@media (max-width:720px){.links{display:none}}
+
+/* hero */
+.hero{text-align:center;padding:56px 0 64px}
+.hero .bird{width:min(220px,56vw);height:auto;margin:0 auto -6px}
+.word{margin:0;font-size:clamp(3.6em,12vw,6em);line-height:1.15;font-weight:800;
+  background:linear-gradient(90deg,var(--teal),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.word .en{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','IBM Plex Sans Arabic',sans-serif;letter-spacing:-.03em}
+.tag{margin:6px 0 0;font-size:clamp(1.35em,3.6vw,1.9em);font-weight:600;line-height:1.35}
+html[data-l='en'] .tag{letter-spacing:-.015em}
+.tag .m{color:var(--teal)}.tag .h{color:var(--purple)}.tag .s{color:var(--eye)}
+.lede{margin:14px auto 0;max-width:440px;color:var(--muted);font-size:1.05em}
+
+/* product tiles — each app in its own colour world, phone rising from the bottom edge */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
+.tile{grid-column:span 2;position:relative;overflow:hidden;border-radius:28px;text-align:center;
+  padding:52px 24px 0;min-height:640px;display:flex;flex-direction:column;align-items:center;background:var(--bg);color:var(--fg)}
+.tile.half{grid-column:span 1}
+.eyebrow{font-size:.85em;font-weight:600;color:var(--eb);margin:0}
+.tile h2{margin:2px 0 0;font-size:clamp(2.4em,6vw,3.5em);line-height:1.15;font-weight:700}
+html[data-l='en'] .tile h2{letter-spacing:-.025em}
+.tile .say{margin:4px 0 0;font-size:clamp(1.2em,2.6vw,1.55em);font-weight:600;line-height:1.4}
+.tile .more{margin:10px auto 0;max-width:460px;font-size:.98em;opacity:.78}
+.cta{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.pill{display:inline-flex;align-items:center;padding:9px 20px;border-radius:999px;font-size:.92em;font-weight:600;background:var(--fg);color:var(--pt);transition:opacity .2s}
+.pill:hover{opacity:.85}
+.go{font-size:.98em;font-weight:500;color:var(--lk)}
+.go:hover{text-decoration:underline}
+.go::after{content:'';display:inline-block;width:.42em;height:.72em;margin-inline-start:.35em;background:currentColor;vertical-align:-.04em;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14'%3E%3Cpath d='M1 1l6 6-6 6' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14'%3E%3Cpath d='M1 1l6 6-6 6' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+html[dir=rtl] .go::after{transform:scaleX(-1)}
+.go.mail::after{content:none}
+.status{margin:14px 0 0;font-size:.8em;opacity:.65;display:flex;align-items:center;gap:7px}
+.status i{width:7px;height:7px;border-radius:50%;background:#34C759}
+.status.soon i{background:var(--eye)}
+.phone{margin-top:auto;padding-top:34px;width:min(470px,94%)}
+.phone img{width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 14%);
+  -webkit-mask-composite:source-in;
+          mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 14%);
+          mask-composite:intersect}
+.half .phone{width:min(380px,94%)}
+.t-dhikr .phone img{-webkit-mask-image:linear-gradient(to right,transparent,#000 18%,#000 82%,transparent),linear-gradient(to bottom,transparent,#000 14%);mask-image:linear-gradient(to right,transparent,#000 18%,#000 82%,transparent),linear-gradient(to bottom,transparent,#000 14%)}
+
+.t-nabeeh{--bg:linear-gradient(180deg,#2C276B,#24215A);--fg:#fff;--pt:#2C276B;--eb:#7FD1C3;--lk:#9FE0D4}
+.t-pulse{--bg:#0B0A09;--fg:#F5F5F7;--pt:#0B0A09;--eb:#7FD1C3;--lk:#F2B865}
+.t-rifq{--bg:linear-gradient(180deg,#EEF8F7 55%,#E3F6F4);--fg:#0F2E2B;--pt:#fff;--eb:#6E52A0;--lk:#0F766E}
+.t-dhikr{--bg:linear-gradient(180deg,#FBFAF5 55%,#F6F2E6);--fg:#17392C;--pt:#fff;--eb:#C0621F;--lk:#1A5B42}
+
+@media (min-width:1100px){.tiles{max-width:1500px;margin:0 auto}}
+@media (max-width:820px){
+  .tile.half{grid-column:span 2}
+  .tile{min-height:0;padding-top:44px;border-radius:22px}
+  .tiles{padding:0 8px;gap:8px}
+}
+
+/* statement */
+.statement{padding:110px 0 30px}
+.statement p{margin:0 auto;max-width:760px;font-size:clamp(1.45em,3.4vw,2.1em);font-weight:600;line-height:1.5}
+html[data-l='en'] .statement p{letter-spacing:-.015em;line-height:1.35}
+.statement .dim{color:var(--muted)}
+
+/* maker */
+.maker{padding:70px 0 40px}
+.maker .card{max-width:640px;margin:0 auto;display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start}
+.maker img{width:72px;height:72px;border-radius:18px;background:var(--paper);border:1px solid var(--hair);padding:6px}
+.maker p{margin:0;color:var(--muted)}
+.maker p b{color:var(--ink);font-weight:600}
+.maker .sig{margin-top:10px;color:var(--ink);font-weight:600}
+
+/* contact */
+.contact{text-align:center;padding:70px 0 100px}
+.contact h2{margin:0;font-size:clamp(1.7em,4vw,2.4em);font-weight:700;line-height:1.3}
+html[data-l='en'] .contact h2{letter-spacing:-.02em}
+.contact p{margin:6px 0 18px;color:var(--muted)}
+.contact .go{color:var(--link);font-size:1.08em}
+
+footer{border-top:1px solid var(--hair);padding:22px 0 44px;font-size:.78em;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+footer a:hover{color:var(--ink)}
+
+/* quiet entrance */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+::selection{background:var(--eye);color:#fff}
+:focus-visible{outline:2px solid var(--eye);outline-offset:3px;border-radius:6px}
+</style>
 </head>
 <body>
-  <h1>Animal Shorts Bot</h1>
-  <p>Automated educational short-form video creator sharing fascinating facts about animals and wildlife.</p>
-  <ul>
-    <li><a href="terms.html">Terms of Service</a></li>
-    <li><a href="privacy.html">Privacy Policy</a></li>
-  </ul>
+
+<header class="nav"><div class="wrap">
+  <a class="brand kufi" href="./">
+    <picture><source srcset="img/yasalam-mark-dark.svg?v=4" media="(prefers-color-scheme: dark)"><img src="img/yasalam-mark.svg?v=4" alt="" width="26" height="26"></picture>
+    <span class="ar">ياسلام</span><span class="en">YaSalam</span>
+  </a>
+  <nav class="links">
+    <a href="#nabeeh"><span class="ar">نبيه</span><span class="en">Nabeeh</span></a>
+    <a href="#pulse">Pulse Nexus</a>
+    <a href="#rifq"><span class="ar">رفق</span><span class="en">Rifq</span></a>
+    <a href="#adhkar"><span class="ar">الأذكار</span><span class="en">Adhkar</span></a>
+  </nav>
+  <button class="lang" onclick="toggleLang()"><span class="ar">English</span><span class="en">العربية</span></button>
+</div></header>
+
+<main>
+
+<section class="hero"><div class="wrap">
+  <img class="bird rv" src="img/pigeon.png?v=3" alt="حمامة من حمام الحرم · A Haram pigeon" width="220" height="220">
+  <h1 class="word kufi rv"><span class="ar">ياسلام</span><span class="en">YaSalam</span></h1>
+  <p class="tag rv"><span class="ar">تطبيقات <span class="m">للعقل</span>، و<span class="h">القلب</span>، و<span class="s">الروح</span>.</span><span class="en">Apps for the <span class="m">mind</span>, the <span class="h">heart</span> and the <span class="s">soul</span>.</span></p>
+  <p class="lede rv"><span class="ar">أربعة تطبيقات من المدينة المنورة، وكلها مجانية.</span><span class="en">Four apps from Madinah, all free.</span></p>
+</div></section>
+
+<div class="tiles">
+
+  <article class="tile t-nabeeh" id="nabeeh">
+    <p class="eyebrow rv"><span class="ar">للعقل</span><span class="en">For the mind</span></p>
+    <h2 class="rv"><span class="ar">نبيه</span><span class="en">Nabeeh</span></h2>
+    <p class="say rv"><span class="ar">جهّز طفلك لاختبار موهبة.</span><span class="en">Get your child ready for Mawhiba.</span></p>
+    <p class="more rv"><span class="ar">تمرين يومي للمستويات الثلاثة، يبدأ من أضعف قسم عند طفلك، وتتابع تقدّمه في تقرير بسيط.</span><span class="en">Daily practice for all three levels. It starts with your child's weakest section, and you follow the progress in a simple report.</span></p>
+    <div class="cta rv">
+      <a class="pill" href="https://apps.apple.com/sa/app/id6826632743" rel="noopener"><span class="ar">حمّله من App Store</span><span class="en">Get it on the App Store</span></a>
+      <a class="go" href="/nabeeh/"><span class="ar">اعرف أكثر</span><span class="en">Learn more</span></a>
+    </div>
+    <p class="status rv"><i></i><span class="ar">متاح في السعودية</span><span class="en">Available in Saudi Arabia</span></p>
+    <div class="phone rv"><img class="ar" src="img/phone-nabeeh-ar.jpg" alt="شاشة نبيه الرئيسية" width="560" height="408" loading="lazy"><img class="en" src="img/phone-nabeeh-en.jpg" alt="Nabeeh home screen" width="560" height="408" loading="lazy"></div>
+  </article>
+
+  <article class="tile t-pulse" id="pulse">
+    <p class="eyebrow rv"><span class="ar">للعقل</span><span class="en">For the mind</span></p>
+    <h2 class="rv">Pulse Nexus</h2>
+    <p class="say rv"><span class="ar">وجّه الضوء. حطّم الزجاج.</span><span class="en">Guide the light. Break the glass.</span></p>
+    <p class="more rv"><span class="ar">لغز مرايا هادئ. تفهمه في دقيقة، وبعد ساعة تنتبه أنك ما زلت تلعب.</span><span class="en">A calm mirror puzzle. You get it in a minute, and an hour later you're still playing.</span></p>
+    <div class="cta rv">
+      <a class="pill" href="https://apps.apple.com/app/id6828459834" rel="noopener"><span class="ar">حمّلها من App Store</span><span class="en">Get it on the App Store</span></a>
+      <a class="go" href="/pulse-nexus-site/"><span class="ar">اعرف أكثر</span><span class="en">Learn more</span></a>
+    </div>
+    <p class="status rv"><i></i><span class="ar">متاحة حول العالم · قريباً على Google Play</span><span class="en">Available worldwide · Google Play soon</span></p>
+    <div class="phone rv"><img class="ar" src="img/phone-pulse-nexus-ar.jpg" alt="مرحلة من Pulse Nexus" width="560" height="408" loading="lazy"><img class="en" src="img/phone-pulse-nexus-en.jpg" alt="A Pulse Nexus level" width="560" height="408" loading="lazy"></div>
+  </article>
+
+  <article class="tile half t-rifq" id="rifq">
+    <p class="eyebrow rv"><span class="ar">للقلب</span><span class="en">For the heart</span></p>
+    <h2 class="rv"><span class="ar">رفق</span><span class="en">Rifq</span></h2>
+    <p class="say rv"><span class="ar">لا تفوّت جرعة.</span><span class="en">Never miss a dose.</span></p>
+    <p class="more rv"><span class="ar">أدويتك وأدوية والديك في مكان واحد، بمواعيد على الصلاة والوجبات. ويعمل بدون إنترنت.</span><span class="en">Your parents' medicines and yours in one place, timed around prayers and meals. Works offline.</span></p>
+    <div class="cta rv">
+      <a class="pill" href="https://apps.apple.com/app/id6829280280" rel="noopener"><span class="ar">حمّله من App Store</span><span class="en">Get it on the App Store</span></a>
+      <a class="go" href="/rifq-app/"><span class="ar">اعرف أكثر</span><span class="en">Learn more</span></a>
+    </div>
+    <p class="status rv"><i></i><span class="ar">متاح الآن · قريباً على Google Play</span><span class="en">Available now · Google Play soon</span></p>
+    <div class="phone rv"><img class="ar" src="img/phone-rifq-ar.jpg" alt="شاشة رفق" width="560" height="408" loading="lazy"><img class="en" src="img/phone-rifq-en.jpg" alt="Rifq screen" width="560" height="408" loading="lazy"></div>
+  </article>
+
+  <article class="tile half t-dhikr" id="adhkar">
+    <p class="eyebrow rv"><span class="ar">للروح</span><span class="en">For the soul</span></p>
+    <h2 class="rv"><span class="ar">أذكار ياسلام</span><span class="en">YaSalam Adhkar</span></h2>
+    <p class="say rv"><span class="ar">أذكارك ومواقيت صلاتك.</span><span class="en">Your adhkar and prayer times.</span></p>
+    <p class="more rv"><span class="ar">أذكار تبدأ وتُختم بالصلاة على النبي ﷺ، ومواقيت وقبلة بدون إنترنت. وبلا إعلانات.</span><span class="en">Adhkar that open and close with salawat ﷺ, with offline prayer times and Qibla. No ads.</span></p>
+    <div class="cta rv">
+      <a class="go" href="/yasalam-app/"><span class="ar">اعرف أكثر</span><span class="en">Learn more</span></a>
+    </div>
+    <p class="status soon rv"><i></i><span class="ar">قريباً على App Store وGoogle Play</span><span class="en">Coming to the App Store and Google Play</span></p>
+    <div class="phone rv"><img src="img/phone-yasalam-app-ar.jpg" alt="شاشة أذكار ياسلام · YaSalam Adhkar screen" width="560" height="408" loading="lazy"></div>
+  </article>
+
+</div>
+
+<section class="statement"><div class="wrap">
+  <p class="rv"><span class="ar"><span class="dim">«ياسلام» نقولها حين يعجبنا شيء.</span> وفيها «السلام»، اسم من أسماء الله الحسنى. وهذا كل ما أريده من أي تطبيق أصنعه: تفتحه، فيريحك، فتقولها.</span><span class="en"><span class="dim">“Ya Salam” is what we say when something delights us.</span> It also holds As-Salam, one of the names of God. That’s all I want from anything I make: you open it, it puts you at ease, and you say it too.</span></p>
+</div></section>
+
+<section class="maker"><div class="wrap">
+  <div class="card rv">
+    <img src="img/pigeon-160.png" alt="" width="72" height="72">
+    <div>
+      <p><span class="ar"><b>أنا عبدالعزيز بخاري، من المدينة المنورة.</b> بدأت بنبيه وأنا أجهّز ولدي لاختبار موهبة، ثم جاءت البقية واحداً بعد الآخر. لا اشتراكات، ولا حساب مطلوب، وكل رسالة على البريد تصلني أنا.</span><span class="en"><b>I’m Abdulaziz Bukhari, from Madinah.</b> Nabeeh started while I was getting my son ready for the Mawhiba test, and the others followed one at a time. No subscriptions, no account needed, and every email comes straight to me.</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap rv">
+  <h2><span class="ar">عندك فكرة، أو وجدت مشكلة؟</span><span class="en">Got an idea, or found a bug?</span></h2>
+  <p><span class="ar">اكتب لي، وأرد عليك.</span><span class="en">Write to me. I’ll get back to you.</span></p>
+  <a class="go mail" href="mailto:yasalam.support@gmail.com?subject=YaSalam"><span dir="ltr">yasalam.support@gmail.com</span></a>
+</div></section>
+
+</main>
+
+<footer><div class="wrap row">
+  <nav>
+    <a href="/nabeeh/"><span class="ar">نبيه</span><span class="en">Nabeeh</span></a>
+    <a href="/pulse-nexus-site/">Pulse Nexus</a>
+    <a href="/rifq-app/"><span class="ar">رفق</span><span class="en">Rifq</span></a>
+    <a href="/yasalam-app/"><span class="ar">أذكار ياسلام</span><span class="en">YaSalam Adhkar</span></a>
+  </nav>
+  <span>© 2026 <span class="ar">ياسلام · صُنع في المدينة المنورة</span><span class="en">YaSalam · Made in Madinah</span></span>
+</div></footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
